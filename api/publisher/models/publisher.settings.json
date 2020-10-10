@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "publishers",
+  "info": {
+    "name": "Publisher"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Address": {
+      "type": "text",
+      "unique": false,
+      "required": true
+    },
+    "ContactNumber": {
+      "type": "string",
+      "regex": "[0-9]",
+      "required": true,
+      "unique": false,
+      "maxLength": 10,
+      "minLength": 10
+    }
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "books",
+  "info": {
+    "name": "Book",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "author": {
+      "via": "books",
+      "model": "author"
+    },
+    "ISBN": {
+      "type": "string",
+      "regex": "[0-9]",
+      "required": true,
+      "maxLength": 13,
+      "minLength": 10
+    },
+    "Cover": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "Category": {
+      "type": "enumeration",
+      "enum": [
+        "Novel",
+        "Research",
+        "Translation"
+      ]
+    },
+    "Genre": {
+      "type": "enumeration",
+      "enum": [
+        "Fantasy",
+        "History",
+        "Adventure",
+        "Story",
+        "Mystery"
+      ]
+    },
+    "Price": {
+      "type": "decimal",
+      "required": true
+    }
+  }
+}

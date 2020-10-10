@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "authors",
+  "info": {
+    "name": "Author",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "books": {
+      "collection": "book",
+      "via": "author"
+    },
+    "Age": {
+      "type": "integer"
+    },
+    "Email": {
+      "type": "email",
+      "required": true
+    },
+    "JoinedDate": {
+      "type": "date"
+    }
+  }
+}
